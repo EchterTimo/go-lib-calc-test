@@ -2,8 +2,14 @@
 
 A simple test to make a Go library.
 
-## Install
+## Use in your project
 
 ```bash
-go install github.com/EchterTimo/go-lib-calc-test@latest
+go get github.com/EchterTimo/go-lib-calc-test@latest
+```
+
+Then import it in your code:
+
+```go
+import calc "github.com/EchterTimo/go-lib-calc-test"
 ```
