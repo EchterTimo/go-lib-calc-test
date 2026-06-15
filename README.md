@@ -10,7 +10,7 @@ A simple test to make a Go library.
 ## Use in your project
 
 ```bash
-go get github.com/EchterTimo/go-lib-calc-test@latest
+go get github.com/EchterTimo/go-lib-calc-test
 ```
 
 Then import it in your code:
