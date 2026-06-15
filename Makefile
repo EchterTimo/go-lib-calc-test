@@ -4,8 +4,8 @@ all: help
 
 .PHONY: help
 help: ## Show this help message
-	@echo "Available targets:"
-	@awk ' \
+	@ echo "Available targets:"
+	@ awk ' \
 		BEGIN { \
 			FS = ":.*?## " \
 		} \
@@ -26,14 +26,19 @@ ensure_version_set = $(if $(VERSION),,$(error ERROR: You must pass VERSION=x.y.z
 
 .PHONY: tag
 tag: ## tag the given version
-	$(call ensure_version_set)
-	echo "Tagging version $(NORMALIZED_VERSION)"
-	git tag $(NORMALIZED_VERSION)
+	@ $(call ensure_version_set)
+	@ echo "Tagging version $(NORMALIZED_VERSION)"
+	@ git tag $(NORMALIZED_VERSION)
+	@ git push origin $(NORMALIZED_VERSION)
 
 
 
 .PHONY: untag
 untag: ## untag the given version
 	@ $(call ensure_version_set)
-	@ git tag -d $(VERSION)
-	@ echo "Version $(VERSION) has been removed."
+	
+	@ git push origin --delete $(NORMALIZED_VERSION)
+	@ echo "Removed version $(NORMALIZED_VERSION) from remote..."
+
+	@ git tag -d $(NORMALIZED_VERSION)
+	@ echo "Removed version $(NORMALIZED_VERSION) locally..."
