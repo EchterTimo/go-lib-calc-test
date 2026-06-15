@@ -11,3 +11,18 @@ type Number interface {
 func Add[T Number](a, b T) T {
 	return a + b
 }
+
+// Subtract takes two numbers of the same type and returns their difference.
+func Subtract[T Number](a, b T) T {
+	return a - b
+}
+
+// Multiply takes two numbers of the same type and returns their product.
+func Multiply[T Number](a, b T) T {
+	return a * b
+}
+
+// Divide takes two numbers of the same type and returns their quotient.
+func Divide[T Number](a, b T) T {
+	return a / b
+}
