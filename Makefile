@@ -29,7 +29,9 @@ tag: ## tag the given version
 	@ $(call ensure_version_set)
 	@ echo "Tagging version $(NORMALIZED_VERSION)"
 	@ git tag $(NORMALIZED_VERSION)
+	@ echo "Tagged version $(NORMALIZED_VERSION) locally..."
 	@ git push origin $(NORMALIZED_VERSION)
+	@ echo "Pushed version $(NORMALIZED_VERSION) to remote..."
 
 
 
